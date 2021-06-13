@@ -764,7 +764,7 @@ def calc_all(d, debug=True, vba_version=VBA_VERSION, api=api, api_new=api_new):
         plt.ylim(0, max([d['pres_atma']] + list(p_dis_pump)) + 10)
         plt.legend()
         plt.grid()
-        plt.ylabel('Давление, МПа')
+        plt.ylabel('Давление, атм')
         plt.xlabel('Дебит жидкости, м3/сут')
         plt.show()
 
@@ -864,8 +864,8 @@ def create_q_dist(params, pi_mean=0.8, pi_std=0.15,
 
 
 def run_design(params, pumps_ids, pumps_heads, pi_mc, dist_p_res, debug=1, num_simulations=1, api=api, api_new=api_new,
-               vba_version=VBA_VERSION, thread_number = 0, path=r'C:\Git\probability_calculations' + '\\'):
-    os.chdir(path + "calc_new")
+               vba_version=VBA_VERSION, thread_number = 0, path=r'.\calc_new'):
+    os.chdir(path)
     results = []
     for this_pump_id in pumps_ids:
         params['pump_id'] = this_pump_id
@@ -929,7 +929,7 @@ def run_design(params, pumps_ids, pumps_heads, pi_mc, dist_p_res, debug=1, num_s
             df.to_csv(f"res_pump_thread_{thread_number}_id_{this_pump_id}_head_{this_pump_head}.csv")
             results.append((this_pump_id, this_pump_head, df.copy()))
 
-    os.chdir(path)
+    os.chdir('..')
     return results
 
 

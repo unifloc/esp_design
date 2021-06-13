@@ -5,7 +5,7 @@ import shutil
 import time
 
 
-path =  r'C:\Git\probability_calculations' + '\\'
+path =  r'.' + '\\'
 
 def esp_design_wrapper(arg_list):
     params, pumps_ids, pumps_heads, pi_mc, dist_p_res, debug, num_simulations, vba_version, thread_num = arg_list
@@ -31,7 +31,7 @@ def esp_design_wrapper(arg_list):
     results = well_model.run_design(params, pumps_ids, pumps_heads, pi_mc, dist_p_res,
                                     debug=debug, num_simulations=num_simulations, api=api,
                          api_new=api_new,
-                         vba_version=vba_version, thread_number=thread_num, path=path)
+                         vba_version=vba_version, thread_number=thread_num, path=path + '\\calc_new')
     return results
 
 

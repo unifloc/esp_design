@@ -109,7 +109,7 @@ params = dict(
 
 if __name__ == '__main__':
     debug = -1
-    num_simulations = 1000
+    num_simulations = 4
     vba_version = '7.28'
     pumps_heads = [2600, 2800, 3000]
     params['n_dots_for_nodal'] = 15
